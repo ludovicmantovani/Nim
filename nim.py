@@ -7,8 +7,9 @@ HEIGHT = 720
 RESOLUTION = (WIDTH, HEIGHT)
 
 # set colors
+DARK_COLOR = (43, 43, 43)
 WHITE_COLOR = (255, 255, 255)
-SCREEN_COLOR = WHITE_COLOR
+SCREEN_COLOR = DARK_COLOR
 
 
 # define a main function
