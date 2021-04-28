@@ -14,7 +14,7 @@ SCREEN_COLOR = DARK_COLOR
 
 # define a main function
 def main():
-    #print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    # print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
     # initialize the pygame module
     pygame.init()
     # load and set the logo
@@ -23,7 +23,7 @@ def main():
     pygame.display.set_caption("Nim program")
 
     # create a surface on screen that has the size of RESOLUTION and basic SCREEN_COLOR
-    screen = pygame.display.set_mode(RESOLUTION)
+    screen = pygame.display.set_mode(RESOLUTION, pygame.NOFRAME | pygame.SCALED)
     pygame.Surface.fill(screen, SCREEN_COLOR)
     pygame.display.update()
 
