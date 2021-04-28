@@ -7,13 +7,14 @@ HEIGHT = 720
 RESOLUTION = (WIDTH, HEIGHT)
 
 # set colors
+DARK_COLOR = (43, 43, 43)
 WHITE_COLOR = (255, 255, 255)
-SCREEN_COLOR = WHITE_COLOR
+SCREEN_COLOR = DARK_COLOR
 
 
 # define a main function
 def main():
-    #print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+    # print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
     # initialize the pygame module
     pygame.init()
     # load and set the logo
@@ -22,7 +23,7 @@ def main():
     pygame.display.set_caption("Nim program")
 
     # create a surface on screen that has the size of RESOLUTION and basic SCREEN_COLOR
-    screen = pygame.display.set_mode(RESOLUTION)
+    screen = pygame.display.set_mode(RESOLUTION, pygame.NOFRAME | pygame.SCALED)
     pygame.Surface.fill(screen, SCREEN_COLOR)
     pygame.display.update()
 
@@ -36,6 +37,11 @@ def main():
             # only do something if the event is of type QUIT
             if event.type == pygame.QUIT:
                 # change the value to False, to exit the main loop
+                running = False
+
+            keys = pygame.key.get_pressed()
+
+            if keys[pygame.K_ESCAPE] or keys[pygame.key.key_code("escape")]:
                 running = False
 
 
