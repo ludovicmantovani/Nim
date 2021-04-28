@@ -39,6 +39,11 @@ def main():
                 # change the value to False, to exit the main loop
                 running = False
 
+            keys = pygame.key.get_pressed()
+
+            if keys[pygame.K_ESCAPE] or keys[pygame.key.key_code("escape")]:
+                running = False
+
 
 # run the main function only if this module is executed as the main script
 # (if you import this as a module then nothing is executed)
