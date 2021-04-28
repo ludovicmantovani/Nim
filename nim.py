@@ -7,9 +7,14 @@ HEIGHT = 720
 RESOLUTION = (WIDTH, HEIGHT)
 
 # set colors
-DARK_COLOR = (43, 43, 43)
-WHITE_COLOR = (255, 255, 255)
-SCREEN_COLOR = DARK_COLOR
+DARK = (43, 43, 43)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+BLUE = (0, 0, 255)
+RED = (255, 0, 0)
+GREEN = (0, 255, 0)
+
+DEFAULT_SCREEN_COLOR = DARK
 
 
 # define a main function
@@ -24,7 +29,7 @@ def main():
 
     # create a surface on screen that has the size of RESOLUTION and basic SCREEN_COLOR
     screen = pygame.display.set_mode(RESOLUTION, pygame.NOFRAME | pygame.SCALED)
-    pygame.Surface.fill(screen, SCREEN_COLOR)
+    pygame.Surface.fill(screen, DEFAULT_SCREEN_COLOR)
     pygame.display.update()
 
     # define a variable to control the main loop
