@@ -17,7 +17,21 @@ GREEN = (0, 255, 0)
 DEFAULT_SCREEN_COLOR = DARK
 
 
-# define a main function
+class Match(pygame.sprite.Sprite):
+    def __init__(self):
+        super().__init__()
+        self.image = pygame.transform.smoothscale(
+            pygame.image.load("img/match640x640.png"), (64, 64))
+        self.surf = pygame.Surface((64, 64))
+
+    def draw(self, surface, position):
+        surface.blit(
+            self.image,
+            self.surf.get_rect(
+                center=position)
+        )
+
+
 def main():
     # print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
     # initialize the pygame module
@@ -30,6 +44,12 @@ def main():
     # create a surface on screen that has the size of RESOLUTION and basic SCREEN_COLOR
     screen = pygame.display.set_mode(RESOLUTION, pygame.NOFRAME | pygame.SCALED)
     pygame.Surface.fill(screen, DEFAULT_SCREEN_COLOR)
+
+    # Draw elements
+    pygame.draw.line(screen, RED, (0, HEIGHT / 2), (WIDTH, HEIGHT / 2))
+    pygame.draw.line(screen, RED, (WIDTH / 2, 0), (WIDTH / 2, HEIGHT))
+    m1 = Match()
+    m1.draw(screen, (WIDTH / 2, HEIGHT / 2))
     pygame.display.update()
 
     # define a variable to control the main loop
