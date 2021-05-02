@@ -13,6 +13,7 @@ BLACK = (0, 0, 0)
 BLUE = (0, 0, 255)
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
+ORANGE = (177, 119, 47)
 
 DEFAULT_SCREEN_COLOR = DARK
 
@@ -51,8 +52,16 @@ def get_coord(nbr_element, elem_size, origin_pos):
 
 
 def draw_match_board(match_board, screen):
+    font = pygame.font.SysFont(pygame.font.get_default_font(), 30)
     lines_nbr = len(match_board)
     height_val = get_coord(lines_nbr, 100, HEIGHT / 2)
+    for index, val in height_val.items():
+        line_label = font.render('L' + str(index + 1), True, ORANGE)
+        screen.blit(
+            line_label,
+            line_label.get_rect(
+                center=(45, val))
+        )
     for index, row in enumerate(match_board):
         width_val = get_coord(row, 22.5, WIDTH / 2)
         for k, val in width_val.items():
@@ -64,6 +73,7 @@ def main():
     # print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
     # initialize the pygame module
     pygame.init()
+    pygame.font.init()
     # load and set the logo
     logo = pygame.image.load("img/logo32x32.png")
     pygame.display.set_icon(logo)
