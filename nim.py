@@ -119,6 +119,9 @@ def main():
                     pygame.Surface.fill(screen, DEFAULT_SCREEN_COLOR)
                     draw_match_board(match_board, screen)
                     pygame.display.update()
+        if sum(match_board) <= 0:
+            running = False
+    pygame.quit()
 
 
 # run the main function only if this module is executed as the main script
